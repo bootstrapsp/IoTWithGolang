@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 26px; line-height: 22px; word-wrap: break-word; } #code-csp-warning { position: fixed; top: 0; right: 0; color: white; margin: 16px; text-align: center; font-size: 12px; font-family: sans-serif; background-color:#444444; cursor: pointer; padding: 6px; box-shadow: 1px 1px 1px rgba(0,0,0,.25); } #code-csp-warning:hover { text-decoration: none; background-color:#007acc; box-shadow: 2px 2px 2px rgba(0,0,0,.25); } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-light.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-dark.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before { border-left: none; } img { max-width: 100%; max-height: 100%; } a { text-decoration: none; } a:hover { text-decoration: underline; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left-width: 5px; border-left-style: solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } pre:not(.hljs), pre.hljs code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ pre code { color: var(--vscode-editor-foreground); } .vscode-light pre:not(.hljs), .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark pre:not(.hljs), .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast pre:not(.hljs), .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } 
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="connecting-and-reading-garmin-lidarlite-sensor-with-gobot-framework">Connecting and reading Garmin LidarLite Sensor with Gobot Framework</h1>
+<h2 id="gobot-framework">GOBOT Framework</h2>
+<p>GOBOT is a framework written in Go programming language. Useful for connecting robotic components, vareity of hardware &amp; IoT devices.</p>
+<p>Framework consists of</p>
+<ul>
+<li>Robots -&gt; Virtual entity representing rover, drones, sensors etc.</li>
+<li>Adaptors -&gt; Allows connectivity to the hardware e.g. connection to Arduino is done using Firmata Adaptor, defining how to talk to it</li>
+<li>Drivers -&gt; Defines specific functionality to support on specific hardware devices e.g. buttons, sensors, etc.</li>
+<li>API -&gt; Provides RESTful API to query Robot status</li>
+</ul>
+<p>There are additional core features of the framework that I recommend having a look esp. Events, Commands allowing Subscribing / Publishing events to the device for more refer to the <a href="https://gobot.io/documentation/">doc</a></p>
+<p>There's already a long list of <a href="https://gobot.io/documentation/platforms/">Platforms</a> for which the drivers and adaptors are available.
+For this blog I will be working with Arduino + <a href="https://buy.garmin.com/en-US/US/p/557294">Garmin LidarLite v3</a>. There are cheaper versions available for distance measturement, however if you are looking for high performance, high precision optical distance measurement sensor, then this is it.</p>
+<h1 id="pre-requisite">Pre-requisite</h1>
+<ul>
+<li>Install Go see <a href="https://golang.org/doc/install">doc</a></li>
+<li><a href="http://gort.io/">Install Gort</a></li>
+<li><a href="https://gobot.io/documentation/platforms/arduino/">Install Gobot</a></li>
+<li><a href="https://learn.sparkfun.com/tutorials/lidar-lite-v3-hookup-guide?_ga=2.113778690.440097749.1533500292-605393167.1533500292">Wire-up LidarLite Sensor with Arduino</a></li>
+</ul>
+<h1 id="how-to-connect">How to connect</h1>
+<p>For our current setup I have Arduino connected to Ubuntu 16 over serial port, see <a href="https://gobot.io/documentation/platforms/arduino/">here</a> if you are looking for a different platform.</p>
+<p>For ubuntu you just need following 3 commands to connect and upload the firmata as our Adaptor to prepare Arduino for connectivity</p>
+<pre class="hljs"><code><div>// Look <span class="hljs-keyword">for</span> the connected serial devices
+$ gort scan serial
+
+// install avrdude to upload firmata to the Arduino
+$ gort arduino install
+
+// uploading the firmata to the serial port found via first scan <span class="hljs-built_in">command</span>, mine was found at /dev/ttyACM0
+$ gort arduino upload firmata /dev/ttyACM0
+</div></code></pre>
+<h2 id="reading-sensor-data">Reading Sensor data</h2>
+<p>Since there is a available driver for the LidarLite, I will be using it in the following Go code below in a file called main.go which connects and reads the sensor data.</p>
+<p>For connecting and reading the sensor data its we need the driver, connection object &amp; the taks / work that the robot is supposed to perform.</p>
+<h3 id="adaptor">Adaptor</h3>
+<pre class="hljs"><code><div>firmataAdaptor := firmata.NewAdaptor(<span class="hljs-string">"/dev/ttyACM0"</span>) <span class="hljs-comment">// this the port on which for me Arduino is connecting</span>
+</div></code></pre>
+<h3 id="driver">Driver</h3>
+<p>As previously mentioned that Gobot provides several drivers on of the them is LidarLite<a href="https://gobot.io/documentation/drivers/lidar-lite/">LidarLite</a> we will be using this like so</p>
+<pre class="hljs"><code><div>d := i2c.NewLIDARLiteDriver(firmataAdaptor)
+</div></code></pre>
+<h3 id="work">Work</h3>
+<p>Now that we have the adaptor &amp; the driver setup lets assign the work this robot needs to do, which is to read the distance</p>
+<pre class="hljs"><code><div>work := <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> {
+		gobot.Every(<span class="hljs-number">1</span>*time.Second, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> {
+			dist, err := d.Distance()
+
+			<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+				log.Fatalln(<span class="hljs-string">"failed to get dist"</span>)
+			}
+			fmt.Println(<span class="hljs-string">"Fetching the dist"</span>, dist, <span class="hljs-string">"cms"</span>)
+		})
+	}
+</div></code></pre>
+<p>Notice the <strong>Every</strong> function provided by gobot to define that we want to perform certain action as the time lapses, here we are gathering the distance.</p>
+<h4 id="note-that-the-distance-returned-by-the-lidarlite-sensor-is-in-cms--the-max-range-for-the-sensor-is-40m">Note that the distance returned by the lidarLite sensor is in CMs &amp; the max range for the sensor is 40m</h4>
+<h4 id="robot">Robot</h4>
+<p>Now we create the robot representing our entity which in this case is simple, its just the sensor itself</p>
+<pre class="hljs"><code><div>    lidarRobot := gobot.NewRobot(<span class="hljs-string">"lidarBot"</span>, 
+    []gobot.Connection{firmataAdaptor},
+	[]gobot.Device{d}, work)
+</div></code></pre>
+<p>This defines the vitual representation of the entity and the driver + the work this robot needs to do.</p>
+<p>Here's the complete code. Before running this pacakge make sure to build it as you likely will have to execute the runnable with sudo. To build simply navigate to the folder in the shell where the main.go exists and execute</p>
+<pre class="hljs"><code><div>$ go build
+</div></code></pre>
+<p>This will create runnable file with the package name execute the same with sudo if needed like so</p>
+<pre class="hljs"><code><div>$ sudo ./GarminLidarLite
+</div></code></pre>
+<p>And if everything done as required following ouput will appear with sensor readings printed out every second</p>
+<pre><code class="language-output">2018/08/05 22:46:54 Initializing connections...
+2018/08/05 22:46:54 Initializing connection Firmata-634725A2E59CBD50 ...
+2018/08/05 22:46:54 Initializing devices...
+2018/08/05 22:46:54 Initializing device LIDARLite-5D4F0034ECE4D0EB ...
+2018/08/05 22:46:54 Robot lidarBot initialized.
+2018/08/05 22:46:54 Starting Robot lidarBot ...
+2018/08/05 22:46:54 Starting connections...
+2018/08/05 22:46:54 Starting connection Firmata-634725A2E59CBD50 on port /dev/ttyACM0...
+2018/08/05 22:46:58 Starting devices...
+2018/08/05 22:46:58 Starting device LIDARLite-5D4F0034ECE4D0EB...
+2018/08/05 22:46:58 Starting work...
+Fetching the dist 166 cms
+Fetching the dist 165 cms
+Fetching the dist 165 cms
+</code></pre>
+<p>Here's complete code for reference.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> main
+
+
+
+<span class="hljs-keyword">import</span> (
+	<span class="hljs-string">"fmt"</span>
+	<span class="hljs-string">"log"</span>
+	<span class="hljs-string">"time"</span>
+
+	<span class="hljs-string">"gobot.io/x/gobot"</span>
+	<span class="hljs-string">"gobot.io/x/gobot/drivers/i2c"</span>
+	<span class="hljs-string">"gobot.io/x/gobot/platforms/firmata"</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+
+	lidarLibTest()
+}
+
+<span class="hljs-comment">// reading Garmin LidarLite data</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">lidarLibTest</span><span class="hljs-params">()</span></span> {
+
+	firmataAdaptor := firmata.NewAdaptor(<span class="hljs-string">"/dev/ttyACM0"</span>)
+
+	d := i2c.NewLIDARLiteDriver(firmataAdaptor)
+
+	work := <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> {
+		gobot.Every(<span class="hljs-number">1</span>*time.Second, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> {
+			dist, err := d.Distance()
+
+			<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+				log.Fatalln(<span class="hljs-string">"failed to get dist"</span>)
+			}
+			fmt.Println(<span class="hljs-string">"Fetching the dist"</span>, dist, <span class="hljs-string">"cms"</span>)
+		})
+	}
+
+    lidarRobot := gobot.NewRobot(<span class="hljs-string">"lidarBot"</span>, 
+    []gobot.Connection{firmataAdaptor},
+	[]gobot.Device{d}, work)
+
+	lidarRobot.Start()
+
+}
+
+</div></code></pre>
+
+    </body>
+    </html>
